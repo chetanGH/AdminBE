@@ -49,7 +49,7 @@ module.exports.createProduct = (req,res)=>{
         try {
             let {error,value} = def.validate(req.body);
             if(error){
-                res.status(400).send({success:false,message:error.details[0].message});
+                return res.status(400).send({success:false,message:error.details[0].message});
             }
             if(value){
                 productSchema.create(value,function(err,added){
@@ -80,7 +80,7 @@ module.exports.signIn = (req,res)=>{
         });
         let {error,value} = def.validate(req.body);
         if(error){
-            res.status(500).send({success:false,message:error.details[0].message});
+            return res.status(500).send({success:false,message:error.details[0].message});
         }
         if(isEmpty(value.email) == false && isEmpty(value.password) == false){
             userSchema.findOne({'email':value.email}).exec((err,user)=>{
@@ -146,7 +146,7 @@ module.exports.addSalesOrder = (req,res) =>{
         let {error,value} = def.validate(req.body);
         if(error){
             console.log(error);
-            res.status(500).send({success:false,message:error.details[0].message});
+            return res.status(500).send({success:false,message:error.details[0].message});
         }else{
             productSchema.findOne({_id:value.item}).exec((err,product)=>{
                 if(err){
