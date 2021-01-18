@@ -28,7 +28,7 @@ to
 ```
 YOUR DB URL
 ```
-
+then do 
 ```
 node app.js
 ```
