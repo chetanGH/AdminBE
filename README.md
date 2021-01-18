@@ -19,6 +19,16 @@ A step by step series of examples that tell you how to get a development env run
 
 Say what the step will be
 
+replace db_url from ```.env```. incase you're usin atlas. Here i used localdb
+
+```
+db_url=mongodb://localhost:27017/adminDB
+```
+to
+```
+YOUR DB URL
+```
+
 ```
 node app.js
 ```
